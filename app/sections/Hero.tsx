@@ -2,6 +2,8 @@
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { useLang } from '../components/LangContext'
+import dynamic from 'next/dynamic'
+const ThreeScene = dynamic(() => import('../components/ThreeScene'), { ssr: false })
 
 export default function Hero() {
   const { lang } = useLang()
@@ -131,39 +133,10 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Right — Chat Demo */}
-        <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.3 }}>
-          <div style={{ background: 'rgba(9,19,35,0.9)', border: '1px solid rgba(0,212,170,0.15)', borderRadius: '20px', padding: '20px', backdropFilter: 'blur(20px)', boxShadow: '0 20px 60px rgba(0,0,0,0.4)' }}>
-            
-            {/* Chat Header */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px', paddingBottom: '14px', borderBottom: '1px solid rgba(0,212,170,0.1)' }}>
-              <div style={{ width: '36px', height: '36px', background: 'linear-gradient(135deg,#00D4AA,#00B894)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '16px', fontWeight: '900', color: '#060D1A' }}>س</div>
-              <div>
-                <div style={{ fontSize: '13px', fontWeight: '800' }}>سارة AI</div>
-                <div style={{ fontSize: '9px', color: '#00D4AA' }}>● {isRTL ? 'نشطة الآن' : 'Active Now'}</div>
-              </div>
-              <div style={{ marginRight: 'auto', marginLeft: 'auto', fontSize: '10px', color: '#5E7090' }}>WhatsApp</div>
-            </div>
-
-            {/* Messages */}
-            {[
-              { from: 'user', ar: 'السلام عليكم، أبي أحجز موعد', en: 'Hi, I want to book an appointment', delay: 0.4 },
-              { from: 'sara', ar: 'وعليكم السلام! يسعدني أساعدك. شو الخدمة اللي تبيها؟', en: 'Hello! Happy to help. What service do you need?', delay: 0.8 },
-              { from: 'user', ar: 'فحص عام، بكرا الصبح', en: 'General checkup, tomorrow morning', delay: 1.2 },
-              { from: 'sara', ar: 'تم حجز موعدك غداً الساعة 10:00 صباحاً ✓', en: 'Your appointment is confirmed for tomorrow at 10:00 AM ✓', delay: 1.6 },
-            ].map((msg, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: msg.delay }}
-                style={{ display: 'flex', justifyContent: msg.from === 'user' ? (isRTL ? 'flex-start' : 'flex-end') : (isRTL ? 'flex-end' : 'flex-start'), marginBottom: '10px' }}>
-                <div style={{ maxWidth: '80%', padding: '10px 14px', borderRadius: msg.from === 'sara' ? '14px 14px 14px 4px' : '14px 14px 4px 14px', background: msg.from === 'sara' ? 'linear-gradient(135deg,#00D4AA,#00B894)' : 'rgba(255,255,255,0.06)', color: msg.from === 'sara' ? '#060D1A' : '#EDF2FF', fontSize: '12px', fontWeight: msg.from === 'sara' ? '600' : '400', lineHeight: '1.5' }}>
-                  {isRTL ? msg.ar : msg.en}
-                </div>
-              </motion.div>
-            ))}
-
-            <div style={{ textAlign: 'center', marginTop: '12px', fontSize: '10px', color: '#5E7090' }}>
-              {isRTL ? 'رد تلقائي في أقل من 30 ثانية' : 'Auto reply in less than 30 seconds'}
-            </div>
-          </div>
+        {/* Right — 3D Scene */}
+        <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.3 }}
+          style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
+          <ThreeScene />
         </motion.div>
       </div>
 

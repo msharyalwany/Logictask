@@ -68,6 +68,7 @@ export default function Testimonials() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 whileHover={{ y: -4 }}
+                className="card-hover"
                 style={{ background: '#091323', border: '1px solid rgba(0,212,170,0.1)', borderRadius: '16px', padding: '24px', transition: 'all 0.25s', display: 'flex', flexDirection: 'column', gap: '16px' }}>
 
                 <Stars count={data.rating} />

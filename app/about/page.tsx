@@ -8,12 +8,12 @@ export default function AboutPage() {
   const isRTL = lang === 'ar'
 
   const values = [
-    { ar: 'الممارسة قبل النظرية', en: 'Practice Before Theory', arDesc: 'نبني أنظمة حقيقية تحل مشاكل حقيقية — لا نبيع وعوداً', enDesc: 'We build real systems that solve real problems — we don\'t sell promises' },
+    { ar: 'الممارسة قبل النظرية', en: 'Practice Before Theory', arDesc: 'نبني أنظمة حقيقية تحل مشاكل حقيقية — لا نبيع وعودا', enDesc: 'We build real systems that solve real problems — we don\'t sell promises' },
     { ar: 'التخصيص الكامل', en: 'Full Customization', arDesc: 'كل نظام نبنيه مختلف — لأن كل بيزنس مختلف', enDesc: 'Every system we build is different — because every business is different' },
     { ar: 'الشراكة الحقيقية', en: 'True Partnership', arDesc: 'نحن شركاء في نجاحك وليس مجرد مزودي خدمة', enDesc: 'We are partners in your success not just service providers' },
     { ar: 'النتائج أولاً', en: 'Results First', arDesc: 'نقيس نجاحنا بنتائجك — لا بعدد العملاء', enDesc: 'We measure our success by your results — not by number of clients' },
     { ar: 'الشفافية الكاملة', en: 'Full Transparency', arDesc: 'نخبرك بما يعمل وما لا يعمل — بصدق تام', enDesc: 'We tell you what works and what doesn\'t — with complete honesty' },
-    { ar: 'التطوير المستمر', en: 'Continuous Development', arDesc: 'أنظمتنا تتطور باستمرار مع تطور تقنيات الذكاء الاصطناعي', enDesc: 'Our systems continuously evolve with advancing AI technologies' },
+    { ar: 'التطوير المستمر', en: 'Continuous Development', arDesc: 'أنظمتنا تتطور مع تطور تقنيات الذكاء الاصطناعي', enDesc: 'Our systems continuously evolve with advancing AI technologies' },
   ]
 
   const stats = [
@@ -39,8 +39,8 @@ export default function AboutPage() {
             </h1>
             <p style={{ fontSize: '16px', color: '#8494B0', lineHeight: '1.8', maxWidth: '600px' }}>
               {isRTL
-                ? 'Logic Task شركة كويتية متخصصة في بناء وكلاء الذكاء الاصطناعي للبيزنسات في الكويت والخليج. نؤمن بأن كل بيزنس — مهما كان حجمه — يستحق تقنية ذكاء اصطناعي حقيقية تعمل بدلاً عنه.'
-                : 'Logic Task is a Kuwaiti company specialized in building AI agents for businesses in Kuwait and the Gulf. We believe every business — regardless of size — deserves real AI technology that works instead of it.'}
+                ? 'Logic Task شركة كويتية متخصصة في بناء وكلاء الذكاء الاصطناعي للبيزنسات في الكويت والخليج. نؤمن بأن كل بيزنس يستحق تقنية ذكاء اصطناعي حقيقية تعمل بدلاً عنه.'
+                : 'Logic Task is a Kuwaiti company specialized in building AI agents for businesses in Kuwait and the Gulf. We believe every business deserves real AI technology that works instead of it.'}
             </p>
           </motion.div>
         </div>
@@ -64,7 +64,7 @@ export default function AboutPage() {
       {/* Story */}
       <section style={{ padding: '80px 5%', background: 'rgba(9,19,35,0.5)' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
-          <motion.div initial={{ opacity: 0, x: isRTL ? 30 : -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <div style={{ fontSize: '11px', color: '#00D4AA', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>
               {isRTL ? 'قصتنا' : 'OUR STORY'}
             </div>
@@ -74,21 +74,21 @@ export default function AboutPage() {
             <p style={{ fontSize: '14px', color: '#8494B0', lineHeight: '1.9', marginBottom: '16px' }}>
               {isRTL
                 ? 'لاحظنا أن البيزنسات في الكويت والخليج تعاني من نفس المشكلة — فرص ضائعة بسبب ردود بطيئة، حجوزات منسية، وعملاء يذهبون للمنافس لأن لا أحد رد عليهم.'
-                : 'We noticed that businesses in Kuwait and the Gulf suffer from the same problem — lost opportunities due to slow replies, forgotten bookings, and clients going to competitors because no one responded to them.'}
+                : 'We noticed that businesses in Kuwait and the Gulf suffer from the same problem — lost opportunities due to slow replies, forgotten bookings, and clients going to competitors because no one responded.'}
             </p>
             <p style={{ fontSize: '14px', color: '#8494B0', lineHeight: '1.9', marginBottom: '16px' }}>
               {isRTL
-                ? 'الحل الموجود في السوق كان إما معقداً جداً أو غير مخصص للبيزنس الخليجي. قررنا نبني الحل الصح — وكيل ذكاء اصطناعي يفهم اللهجة الخليجية ويعمل على المنصات التي يستخدمها الناس فعلاً.'
-                : 'The existing solutions in the market were either too complex or not customized for Gulf businesses. We decided to build the right solution — an AI agent that understands the Gulf dialect and works on the platforms people actually use.'}
+                ? 'الحل الموجود في السوق كان إما معقداً جداً أو غير مخصص للبيزنس الخليجي. قررنا نبني الحل الصح — وكيل ذكاء اصطناعي يفهم اللهجة الخليجية.'
+                : 'The existing solutions were either too complex or not customized for Gulf businesses. We decided to build the right solution — an AI agent that understands the Gulf dialect.'}
             </p>
             <p style={{ fontSize: '14px', color: '#8494B0', lineHeight: '1.9' }}>
               {isRTL
                 ? 'اليوم Logic Task تخدم بيزنسات في الكويت والخليج — وهدفنا إننا نجعل تقنية الذكاء الاصطناعي متاحة لكل بيزنس بغض النظر عن حجمه.'
-                : 'Today Logic Task serves businesses in Kuwait and the Gulf — and our goal is to make AI technology accessible to every business regardless of its size.'}
+                : 'Today Logic Task serves businesses in Kuwait and the Gulf — our goal is to make AI technology accessible to every business regardless of its size.'}
             </p>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: isRTL ? -30 : 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+          <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <div style={{ background: '#091323', border: '1px solid rgba(0,212,170,0.12)', borderRadius: '20px', padding: '32px' }}>
               <div style={{ fontSize: '13px', color: '#5E7090', fontWeight: '700', marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '1px' }}>
                 {isRTL ? 'رؤيتنا' : 'OUR VISION'}
@@ -99,7 +99,7 @@ export default function AboutPage() {
                   : '"We want every business in the Gulf to have an AI employee working instead of them — 24 hours, 7 days, without stopping."'}
               </p>
               <div style={{ borderTop: '1px solid rgba(0,212,170,0.1)', paddingTop: '20px' }}>
-                <div style={{ fontSize: '13px', color: '#5E7090', fontWeight: '700', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                <div style={{ fontSize: '13px', color: '#5E7090', fontWeight: '700', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>
                   {isRTL ? 'مهمتنا' : 'OUR MISSION'}
                 </div>
                 <p style={{ fontSize: '14px', color: '#8494B0', lineHeight: '1.8' }}>

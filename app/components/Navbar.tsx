@@ -71,7 +71,10 @@ export default function Navbar({ lang, setLang }: { lang: string, setLang: (l: s
           </button>
 
           {showServices && (
-            <div style={{
+            <div
+              onMouseEnter={() => setShowServices(true)}
+              onMouseLeave={() => setShowServices(false)}
+              style={{
               position: 'absolute', top: '100%', right: isRTL ? 0 : 'auto', left: isRTL ? 'auto' : 0,
               background: '#091323', border: '1px solid rgba(0,212,170,0.15)',
               borderRadius: '14px', padding: '10px', width: '240px',

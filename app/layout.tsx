@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { LangProvider } from './components/LangContext'
 import NavbarWrapper from './components/NavbarWrapper'
+import dynamic from 'next/dynamic'
+const BackgroundParticles = dynamic(() => import('./components/BackgroundParticles'), { ssr: false })
 
 export const metadata: Metadata = {
   title: 'Logic Task — وكلاء ذكاء اصطناعي يعملون بدلاً عنك',
@@ -24,8 +26,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <LangProvider>
+          <BackgroundParticles />
           <NavbarWrapper />
-          {children}
+          <div style={{ position: 'relative', zIndex: 1 }}>{children}</div>
         </LangProvider>
       </body>
     </html>

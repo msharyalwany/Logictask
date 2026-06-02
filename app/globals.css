@@ -28,3 +28,68 @@ body {
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--navy); }
 ::-webkit-scrollbar-thumb { background: rgba(0,212,170,0.3); border-radius: 10px; }
+
+/* Gradient animations */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(0,212,170,0.1); }
+  50% { box-shadow: 0 0 40px rgba(0,212,170,0.25); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Smooth scrolling */
+html { scroll-behavior: smooth; }
+
+/* Card hover effect */
+.card-hover {
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0,212,170,0.3) !important;
+  box-shadow: 0 12px 40px rgba(0,212,170,0.08);
+}
+
+/* Button glow */
+.btn-glow:hover {
+  box-shadow: 0 0 30px rgba(0,212,170,0.4) !important;
+  transform: translateY(-1px);
+}
+
+/* Teal text gradient */
+.text-gradient {
+  background: linear-gradient(135deg, #00D4AA, #00B894);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Floating animation */
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Glow pulse */
+.glow-pulse {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(0,212,170,0.2);
+  color: #EDF2FF;
+}

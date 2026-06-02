@@ -36,6 +36,7 @@ export default function CTA() {
 
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '40px' }}>
             <a href="https://calendly.com/logictask7/30min" target="_blank" rel="noreferrer"
+              className="btn-glow"
               style={{ padding: '16px 36px', borderRadius: '12px', background: '#00D4AA', color: '#060D1A', textDecoration: 'none', fontSize: '15px', fontWeight: '700', boxShadow: '0 0 30px rgba(0,212,170,0.3)', transition: 'all 0.2s' }}>
               {isRTL ? 'ابدأ مجاناً الآن' : 'Start Free Now'}
             </a>
