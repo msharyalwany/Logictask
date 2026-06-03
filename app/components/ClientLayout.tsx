@@ -8,11 +8,9 @@ const BackgroundParticles = dynamic(
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   return (
-    <>
+    <div style={{ position: 'relative' }}>
       <BackgroundParticles />
-      <div style={{ position: 'relative', zIndex: 1 }}>
-        {children}
-      </div>
-    </>
+      {children}
+    </div>
   )
 }
