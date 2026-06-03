@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { LangProvider } from './components/LangContext'
 import NavbarWrapper from './components/NavbarWrapper'
+import ClientLayout from './components/ClientLayout'
 
 export const metadata: Metadata = {
   title: 'Logic Task — وكلاء ذكاء اصطناعي يعملون بدلاً عنك',
@@ -25,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <LangProvider>
           <NavbarWrapper />
-          {children}
+          <ClientLayout>{children}</ClientLayout>
         </LangProvider>
       </body>
     </html>
