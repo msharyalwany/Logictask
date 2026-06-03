@@ -26,7 +26,7 @@ const faqs = [
     en: { q: 'What if the client needs a human?', a: 'Sara automatically transfers the conversation to a human when needed — with instant management notification. You control when and how the transfer happens.' },
   },
   {
-    ar: { q: 'هل يربط بنظام الحجز الحالي لدينا؟', a: 'نعم — سارة تتكامل مع Google Calendar وأي نظام حجز تستخدمه. لا تحتاج تغيير في طريقة شغلك.' },
+    ar: { q: 'هل تتكامل مع نظام الحجز الحالي لدينا؟', a: 'نعم — سارة تتكامل مع Google Calendar وأي نظام حجز تستخدمه. لا تحتاج تغيير في طريقة شغلك.' },
     en: { q: 'Does it integrate with our current booking system?', a: 'Yes — Sara integrates with Google Calendar and any booking system you use. No need to change your workflow.' },
   },
   {

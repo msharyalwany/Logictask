@@ -11,7 +11,7 @@ const features = [
     enDesc: 'Auto reply in under 30 seconds — text and voice — on any platform',
   },
   {
-    ar: 'تحجز وتلغي وتعدّل المواعيد',
+    ar: 'تحجز وتلغي وتعدل المواعيد',
     en: 'Books, Cancels & Edits Appointments',
     arDesc: 'تسجل المواعيد مباشرة في نظامك — بدون تدخل بشري',
     enDesc: 'Records appointments directly in your system — no human involvement',

@@ -29,7 +29,7 @@ const data = {
       { title: 'تركيب في 48 ساعة', desc: 'من أول اتصال حتى التشغيل الكامل — 48 ساعة فقط بدون تعقيدات' },
     ],
     useCases: ['عيادات طبية', 'مراكز تجميل', 'صالات رياضية', 'مطاعم وكافيهات', 'مراكز تعليمية', 'مكاتب عقارية', 'معارض سيارات', 'خدمات مهنية', 'محلات تجارية', 'أي بيزنس يتعامل مع عملاء'],
-    cta: 'ابدأ تجربة مجانية 5 أيام',
+    cta: 'احجز استشارتك المجانية اليوم',
   },
   en: {
     title: 'Sara AI',
@@ -55,7 +55,7 @@ const data = {
       { title: 'Setup in 48 Hours', desc: 'From first contact to full operation — just 48 hours with no complications' },
     ],
     useCases: ['Medical Clinics', 'Beauty Centers', 'Gyms', 'Restaurants & Cafes', 'Education Centers', 'Real Estate Offices', 'Car Showrooms', 'Professional Services', 'Retail Stores', 'Any Client-Facing Business'],
-    cta: 'Start 5-Day Free Trial',
+    cta: 'Book Your Free Consultation Today',
   },
 }
 

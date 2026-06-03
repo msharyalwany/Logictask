@@ -92,7 +92,7 @@ export default function Hero() {
             style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
             <a href="https://calendly.com/logictask7/30min" target="_blank" rel="noreferrer"
               style={{ padding: '14px 28px', borderRadius: '10px', background: '#00D4AA', color: '#060D1A', textDecoration: 'none', fontSize: '14px', fontWeight: '700', boxShadow: '0 0 24px rgba(0,212,170,0.3)' }}>
-              {isRTL ? 'ابدأ مجاناً — 5 أيام' : 'Start Free — 5 Days'}
+              {isRTL ? 'احجز استشارتك المجانية اليوم' : 'Book Your Free Consultation Today'}
             </a>
             <a href="https://wa.me/96550441803" target="_blank" rel="noreferrer"
               style={{ padding: '14px 28px', borderRadius: '10px', background: 'transparent', border: '1px solid rgba(0,212,170,0.3)', color: '#EDF2FF', textDecoration: 'none', fontSize: '14px', fontWeight: '600' }}>

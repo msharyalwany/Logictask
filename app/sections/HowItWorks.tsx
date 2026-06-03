@@ -92,7 +92,7 @@ export default function HowItWorks() {
           style={{ textAlign: 'center', marginTop: '60px' }}>
           <a href="https://calendly.com/logictask7/30min" target="_blank" rel="noreferrer"
             style={{ display: 'inline-block', padding: '14px 36px', background: '#00D4AA', color: '#060D1A', textDecoration: 'none', borderRadius: '10px', fontSize: '14px', fontWeight: '700', boxShadow: '0 0 24px rgba(0,212,170,0.25)', transition: 'all 0.2s' }}>
-            {isRTL ? 'ابدأ الخطوة الأولى مجاناً' : 'Start the First Step Free'}
+            {isRTL ? 'احجز استشارتك المجانية اليوم' : 'Book Your Free Consultation Today'}
           </a>
         </motion.div>
       </div>

@@ -91,7 +91,7 @@ export default function Pricing() {
               style={{ display: 'block', width: '100%', padding: '13px', borderRadius: '10px', background: 'transparent', border: '1px solid rgba(0,212,170,0.3)', color: '#EDF2FF', textDecoration: 'none', fontSize: '13px', fontWeight: '700', textAlign: 'center', transition: 'all 0.2s' }}
               onMouseEnter={e => { e.currentTarget.style.background = 'rgba(0,212,170,0.08)' }}
               onMouseLeave={e => { e.currentTarget.style.background = 'transparent' }}>
-              {isRTL ? 'ابدأ التجربة المجانية' : 'Start Free Trial'}
+              {isRTL ? 'احجز استشارتك المجانية اليوم' : 'Book Your Free Consultation Today'}
             </a>
           </motion.div>
 
@@ -136,7 +136,7 @@ export default function Pricing() {
 
             <a href="https://calendly.com/logictask7/30min" target="_blank" rel="noreferrer"
               style={{ display: 'block', width: '100%', padding: '13px', borderRadius: '10px', background: '#00D4AA', color: '#060D1A', textDecoration: 'none', fontSize: '13px', fontWeight: '700', textAlign: 'center', boxShadow: '0 0 20px rgba(0,212,170,0.25)', transition: 'all 0.2s' }}>
-              {isRTL ? 'ابدأ التجربة المجانية' : 'Start Free Trial'}
+              {isRTL ? 'احجز استشارتك المجانية اليوم' : 'Book Your Free Consultation Today'}
             </a>
           </motion.div>
         </div>

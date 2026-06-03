@@ -32,7 +32,7 @@ export default function Comparison() {
             {isRTL ? 'سارة AI مقابل موظف الاستقبال' : 'Sara AI vs. Receptionist'}
           </h2>
           <p style={{ fontSize: '15px', color: '#8494B0', maxWidth: '500px', margin: '0 auto', lineHeight: '1.8' }}>
-            {isRTL ? 'الأرقام تتكلم — قرن بنفسك' : 'The numbers speak — compare for yourself'}
+            {isRTL ? 'الأرقام تتكلم — قارن بنفسك' : 'The numbers speak — compare for yourself'}
           </p>
         </motion.div>
 
