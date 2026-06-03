@@ -1,11 +1,13 @@
 'use client'
 import { motion } from 'framer-motion'
 import { useLang } from '../components/LangContext'
+import { useIsMobile } from '../hooks/useIsMobile'
 import Footer from '../sections/Footer'
 
 export default function ContactPage() {
   const { lang } = useLang()
   const isRTL = lang === 'ar'
+  const isMobile = useIsMobile()
 
   const channels = [
     {
@@ -60,7 +62,7 @@ export default function ContactPage() {
       {/* Contact Channels */}
       <section style={{ padding: '0 5% 80px' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '20px', marginBottom: '60px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3,1fr)', gap: '20px', marginBottom: '60px' }}>
             {channels.map((c, i) => (
               <motion.a key={i} href={c.href} target="_blank" rel="noreferrer"
                 initial={{ opacity: 0, y: 20 }}
@@ -86,7 +88,7 @@ export default function ContactPage() {
 
           {/* Info Box */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            style={{ background: '#091323', border: '1px solid rgba(0,212,170,0.12)', borderRadius: '16px', padding: '32px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px' }}>
+            style={{ background: '#091323', border: '1px solid rgba(0,212,170,0.12)', borderRadius: '16px', padding: '32px', display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '40px' }}>
 
             <div>
               <div style={{ fontSize: '13px', fontWeight: '800', color: '#00D4AA', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '1px' }}>

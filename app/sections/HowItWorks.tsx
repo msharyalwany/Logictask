@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import { useLang } from '../components/LangContext'
+import { useIsMobile } from '../hooks/useIsMobile'
 
 const steps = [
   {
@@ -36,6 +37,7 @@ const steps = [
 export default function HowItWorks() {
   const { lang } = useLang()
   const isRTL = lang === 'ar'
+  const isMobile = useIsMobile()
 
   return (
     <section style={{ padding: '100px 5%', background: 'rgba(9,19,35,0.5)' }}>
@@ -55,7 +57,7 @@ export default function HowItWorks() {
         </motion.div>
 
         {/* Steps */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '0', position: 'relative' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4,1fr)', gap: '0', position: 'relative' }}>
 
           {/* Connecting Line */}
           <div style={{ position: 'absolute', top: '40px', right: '12.5%', left: '12.5%', height: '1px', background: 'linear-gradient(90deg,transparent,rgba(0,212,170,0.3),rgba(0,212,170,0.6),rgba(0,212,170,0.3),transparent)', zIndex: 0 }} />

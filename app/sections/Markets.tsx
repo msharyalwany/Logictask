@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import { useLang } from '../components/LangContext'
+import { useIsMobile } from '../hooks/useIsMobile'
 
 const markets = [
   { ar: 'الصحة والطب', en: 'Health & Medicine', arDesc: 'عيادات، مستشفيات، مراكز طبية', enDesc: 'Clinics, hospitals, medical centers' },
@@ -23,6 +24,7 @@ const markets = [
 export default function Markets() {
   const { lang } = useLang()
   const isRTL = lang === 'ar'
+  const isMobile = useIsMobile()
 
   return (
     <section style={{ padding: '100px 5%' }}>
@@ -41,7 +43,7 @@ export default function Markets() {
           </p>
         </motion.div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: '14px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(5,1fr)', gap: '14px' }}>
           {markets.map((m, i) => (
             <motion.div key={i}
               initial={{ opacity: 0, scale: 0.9 }}

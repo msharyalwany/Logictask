@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLang } from '../components/LangContext'
+import { useIsMobile } from '../hooks/useIsMobile'
 
 const faqs = [
   {
@@ -49,6 +50,7 @@ const faqs = [
 export default function FAQ() {
   const { lang } = useLang()
   const isRTL = lang === 'ar'
+  const isMobile = useIsMobile()
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (

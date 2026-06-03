@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useLang } from './LangContext'
+import { useIsMobile } from '../hooks/useIsMobile'
 import Footer from '../sections/Footer'
 
 interface Feature {
@@ -38,6 +39,7 @@ interface ServiceData {
 export default function ServiceTemplate({ data }: { data: ServiceData }) {
   const { lang } = useLang()
   const isRTL = lang === 'ar'
+  const isMobile = useIsMobile()
   const d = isRTL ? data.ar : data.en
 
   return (
@@ -58,7 +60,7 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
             <span style={{ color: '#00D4AA' }}>{d.title}</span>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '60px', alignItems: 'center' }}>
             <div>
               {/* Badge */}
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: data.available ? 'rgba(0,212,170,0.08)' : 'rgba(255,215,64,0.08)', border: `1px solid ${data.available ? 'rgba(0,212,170,0.2)' : 'rgba(255,215,64,0.2)'}`, borderRadius: '20px', padding: '5px 14px', fontSize: '11px', color: data.available ? '#00D4AA' : '#FFD740', fontWeight: '700', marginBottom: '20px' }}>
@@ -132,7 +134,7 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
               {isRTL ? 'كل ما تحصل عليه' : 'Everything You Get'}
             </h2>
           </motion.div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '16px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3,1fr)', gap: '16px' }}>
             {d.features.map((f, i) => (
               <motion.div key={i}
                 initial={{ opacity: 0, y: 20 }}
@@ -159,7 +161,7 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
               {isRTL ? 'لماذا تختار هذه الخدمة؟' : 'Why Choose This Service?'}
             </h2>
           </motion.div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '20px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3,1fr)', gap: '20px' }}>
             {d.benefits.map((b, i) => (
               <motion.div key={i}
                 initial={{ opacity: 0, y: 20 }}

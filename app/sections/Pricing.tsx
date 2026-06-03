@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import { useLang } from '../components/LangContext'
+import { useIsMobile } from '../hooks/useIsMobile'
 
 const basicFeatures = [
   { ar: 'رد تلقائي 24/7 على منصتك', en: 'Auto reply 24/7 on your platform' },
@@ -31,6 +32,7 @@ const growthFeatures = [
 export default function Pricing() {
   const { lang } = useLang()
   const isRTL = lang === 'ar'
+  const isMobile = useIsMobile()
 
   return (
     <section style={{ padding: '100px 5%' }}>
@@ -49,7 +51,7 @@ export default function Pricing() {
           </p>
         </motion.div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '24px' }}>
 
           {/* Basic Plan */}
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}

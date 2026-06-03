@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import { useLang } from '../components/LangContext'
+import { useIsMobile } from '../hooks/useIsMobile'
 
 const features = [
   {
@@ -34,6 +35,7 @@ const platforms = ['WhatsApp', 'Telegram', 'Instagram', 'Facebook', 'SMS', 'Emai
 export default function Solution() {
   const { lang } = useLang()
   const isRTL = lang === 'ar'
+  const isMobile = useIsMobile()
 
   return (
     <section style={{ padding: '100px 5%' }}>
@@ -98,7 +100,7 @@ export default function Solution() {
 
         {/* Stats Bar */}
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '1px', background: 'rgba(0,212,170,0.1)', borderRadius: '16px', overflow: 'hidden' }}>
+          style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4,1fr)', gap: '1px', background: 'rgba(0,212,170,0.1)', borderRadius: '16px', overflow: 'hidden' }}>
           {[
             { val: '98%', ar: 'معدل الرد التلقائي', en: 'Auto Reply Rate' },
             { val: '< 30s', ar: 'متوسط وقت الرد', en: 'Avg Response Time' },

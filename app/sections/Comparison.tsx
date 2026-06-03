@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import { useLang } from '../components/LangContext'
+import { useIsMobile } from '../hooks/useIsMobile'
 
 const rows = [
   { ar: 'ساعات العمل', en: 'Working Hours', sara: { ar: '24/7 بدون توقف', en: '24/7 Non-Stop' }, human: { ar: '8 ساعات فقط', en: '8 Hours Only' }, saraWins: true },
@@ -16,6 +17,7 @@ const rows = [
 export default function Comparison() {
   const { lang } = useLang()
   const isRTL = lang === 'ar'
+  const isMobile = useIsMobile()
 
   return (
     <section style={{ padding: '100px 5%', background: 'rgba(9,19,35,0.5)' }}>

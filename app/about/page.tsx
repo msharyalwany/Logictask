@@ -1,11 +1,13 @@
 'use client'
 import { motion } from 'framer-motion'
 import { useLang } from '../components/LangContext'
+import { useIsMobile } from '../hooks/useIsMobile'
 import Footer from '../sections/Footer'
 
 export default function AboutPage() {
   const { lang } = useLang()
   const isRTL = lang === 'ar'
+  const isMobile = useIsMobile()
 
   const values = [
     { ar: 'الممارسة قبل النظرية', en: 'Practice Before Theory', arDesc: 'نبني أنظمة حقيقية تحل مشاكل حقيقية — لا نبيع وعودا', enDesc: 'We build real systems that solve real problems — we don\'t sell promises' },
@@ -49,7 +51,7 @@ export default function AboutPage() {
       {/* Stats */}
       <section style={{ padding: '0 5% 80px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '1px', background: 'rgba(0,212,170,0.1)', borderRadius: '16px', overflow: 'hidden' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4,1fr)', gap: '1px', background: 'rgba(0,212,170,0.1)', borderRadius: '16px', overflow: 'hidden' }}>
             {stats.map((s, i) => (
               <motion.div key={i} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
                 style={{ background: '#060D1A', padding: '32px', textAlign: 'center' }}>
@@ -63,7 +65,7 @@ export default function AboutPage() {
 
       {/* Story */}
       <section style={{ padding: '80px 5%', background: 'rgba(9,19,35,0.5)' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '60px', alignItems: 'center' }}>
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <div style={{ fontSize: '11px', color: '#00D4AA', fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>
               {isRTL ? 'قصتنا' : 'OUR STORY'}
@@ -125,7 +127,7 @@ export default function AboutPage() {
               {isRTL ? 'ما الذي يميزنا' : 'What Sets Us Apart'}
             </h2>
           </motion.div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '20px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3,1fr)', gap: '20px' }}>
             {values.map((v, i) => (
               <motion.div key={i}
                 initial={{ opacity: 0, y: 20 }}

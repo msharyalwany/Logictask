@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
+import { useIsMobile } from '../hooks/useIsMobile'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -19,6 +20,7 @@ export default function Navbar({ lang, setLang }: { lang: string, setLang: (l: s
   const [scrolled, setScrolled] = useState(false)
   const [showServices, setShowServices] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const isMobile = useIsMobile()
   const isRTL = lang === 'ar'
 
   useEffect(() => {
@@ -122,16 +124,52 @@ export default function Navbar({ lang, setLang }: { lang: string, setLang: (l: s
           {lang === 'ar' ? 'EN' : 'ع'}
         </button>
 
-        <a href="https://wa.me/96550441803" target="_blank" rel="noreferrer"
-          style={{ padding: '8px 16px', borderRadius: '8px', background: 'transparent', border: '1px solid rgba(0,212,170,0.2)', color: '#EDF2FF', textDecoration: 'none', fontSize: '12px', fontWeight: '600' }}>
-          {isRTL ? 'تواصل معنا' : 'Contact Us'}
-        </a>
+        {!isMobile && (
+          <a href="https://wa.me/96550441803" target="_blank" rel="noreferrer"
+            style={{ padding: '8px 16px', borderRadius: '8px', background: 'transparent', border: '1px solid rgba(0,212,170,0.2)', color: '#EDF2FF', textDecoration: 'none', fontSize: '12px', fontWeight: '600' }}>
+            {isRTL ? 'تواصل معنا' : 'Contact Us'}
+          </a>
+        )}
 
-        <a href="https://calendly.com/logictask7/30min" target="_blank" rel="noreferrer"
-          style={{ padding: '8px 18px', borderRadius: '8px', background: '#00D4AA', color: '#060D1A', textDecoration: 'none', fontSize: '12px', fontWeight: '700', boxShadow: '0 0 16px rgba(0,212,170,0.3)' }}>
-          {isRTL ? 'احجز استشارة' : 'Book a Call'}
-        </a>
+        {!isMobile && (
+          <a href="https://calendly.com/logictask7/30min" target="_blank" rel="noreferrer"
+            style={{ padding: '8px 18px', borderRadius: '8px', background: '#00D4AA', color: '#060D1A', textDecoration: 'none', fontSize: '12px', fontWeight: '700', boxShadow: '0 0 16px rgba(0,212,170,0.3)' }}>
+            {isRTL ? 'احجز استشارة' : 'Book a Call'}
+          </a>
+        )}
+
+        {/* Hamburger */}
+        {isMobile && (
+          <button onClick={() => setMobileOpen(!mobileOpen)}
+            style={{ background: 'transparent', border: '1px solid rgba(0,212,170,0.2)', borderRadius: '8px', padding: '8px 12px', cursor: 'pointer', color: '#00D4AA', fontSize: '18px' }}>
+            {mobileOpen ? '✕' : '☰'}
+          </button>
+        )}
       </div>
+
+      {/* Mobile Menu */}
+      {isMobile && mobileOpen && (
+        <div style={{ position: 'fixed', top: '70px', left: 0, right: 0, background: 'rgba(6,13,26,0.98)', backdropFilter: 'blur(20px)', borderBottom: '1px solid rgba(0,212,170,0.1)', padding: '20px', zIndex: 999, display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          {[
+            { href: '/', ar: 'الرئيسية', en: 'Home' },
+            { href: '/services', ar: 'الخدمات', en: 'Services' },
+            { href: '/services/sara', ar: 'سارة AI', en: 'Sara AI' },
+            { href: '/pricing', ar: 'الأسعار', en: 'Pricing' },
+            { href: '/about', ar: 'من نحن', en: 'About' },
+            { href: '/contact', ar: 'تواصل معنا', en: 'Contact' },
+          ].map((item, i) => (
+            <a key={i} href={item.href} onClick={() => setMobileOpen(false)}
+              style={{ color: '#EDF2FF', textDecoration: 'none', fontSize: '15px', fontWeight: '600', padding: '10px 0', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+              {isRTL ? item.ar : item.en}
+            </a>
+          ))}
+          <a href="https://calendly.com/logictask7/30min" target="_blank" rel="noreferrer"
+            onClick={() => setMobileOpen(false)}
+            style={{ marginTop: '8px', padding: '12px', borderRadius: '10px', background: '#00D4AA', color: '#060D1A', textDecoration: 'none', fontSize: '14px', fontWeight: '700', textAlign: 'center' }}>
+            {isRTL ? 'احجز استشارة مجانية' : 'Book Free Consultation'}
+          </a>
+        </div>
+      )}
     </nav>
   )
 }

@@ -2,10 +2,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useLang } from '../components/LangContext'
+import { useIsMobile } from '../hooks/useIsMobile'
 
 export default function Footer() {
   const { lang } = useLang()
   const isRTL = lang === 'ar'
+  const isMobile = useIsMobile()
 
   const services = [
     { href: '/services/sara', ar: 'سارة AI', en: 'Sara AI' },
@@ -34,7 +36,7 @@ export default function Footer() {
     <footer style={{ background: '#060D1A', borderTop: '1px solid rgba(0,212,170,0.1)', padding: '60px 5% 30px' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 2fr 1fr', gap: '48px', marginBottom: '48px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '2fr 2fr 1fr', gap: '48px', marginBottom: '48px' }}>
 
           {/* Brand */}
           <div>
@@ -67,7 +69,7 @@ export default function Footer() {
             <div style={{ fontSize: '12px', fontWeight: '700', color: '#EDF2FF', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '1px' }}>
               {isRTL ? 'الخدمات' : 'Services'}
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '8px' }}>
               {services.map((s, i) => (
                 <Link key={i} href={s.href}
                   style={{ fontSize: '12px', color: '#5E7090', textDecoration: 'none', lineHeight: '1.6' }}

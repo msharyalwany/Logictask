@@ -1,12 +1,14 @@
 'use client'
 import { motion } from 'framer-motion'
 import { useLang } from '../components/LangContext'
+import { useIsMobile } from '../hooks/useIsMobile'
 import Footer from '../sections/Footer'
 import Link from 'next/link'
 
 export default function PricingPage() {
   const { lang } = useLang()
   const isRTL = lang === 'ar'
+  const isMobile = useIsMobile()
 
   const basicFeatures = [
     { ar: 'رد تلقائي 24/7 على منصتك', en: 'Auto reply 24/7 on your platform' },
@@ -78,7 +80,7 @@ export default function PricingPage() {
             </h2>
           </motion.div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px', marginBottom: '60px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '24px', marginBottom: '60px' }}>
 
             {/* Basic */}
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
@@ -174,7 +176,7 @@ export default function PricingPage() {
               </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '12px', marginBottom: '28px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4,1fr)', gap: '12px', marginBottom: '28px' }}>
               {otherServices.map((s, i) => (
                 <Link key={i} href={s.href}
                   style={{ background: '#091323', border: '1px solid rgba(0,212,170,0.1)', borderRadius: '12px', padding: '16px', textDecoration: 'none', textAlign: 'center', transition: 'all 0.2s', display: 'block' }}

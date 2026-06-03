@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import { useLang } from '../components/LangContext'
+import { useIsMobile } from '../hooks/useIsMobile'
 
 const testimonials = [
   {
@@ -40,6 +41,7 @@ const Stars = ({ count }: { count: number }) => (
 export default function Testimonials() {
   const { lang } = useLang()
   const isRTL = lang === 'ar'
+  const isMobile = useIsMobile()
 
   return (
     <section style={{ padding: '100px 5%', background: 'rgba(9,19,35,0.5)' }}>
@@ -58,7 +60,7 @@ export default function Testimonials() {
           </p>
         </motion.div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3,1fr)', gap: '20px' }}>
           {testimonials.map((t, i) => {
             const data = isRTL ? t.ar : t.en
             return (

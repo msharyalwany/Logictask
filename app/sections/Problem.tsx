@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import { useLang } from '../components/LangContext'
+import { useIsMobile } from '../hooks/useIsMobile'
 
 const problems = [
   {
@@ -44,6 +45,7 @@ const problems = [
 export default function Problem() {
   const { lang } = useLang()
   const isRTL = lang === 'ar'
+  const isMobile = useIsMobile()
 
   return (
     <section style={{ padding: '100px 5%', background: 'rgba(9,19,35,0.5)' }}>
@@ -66,7 +68,7 @@ export default function Problem() {
         </motion.div>
 
         {/* Problems Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3,1fr)', gap: '20px' }}>
           {problems.map((p, i) => (
             <motion.div key={i}
               initial={{ opacity: 0, y: 30 }}
